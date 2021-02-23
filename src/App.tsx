@@ -79,7 +79,7 @@ function App () {
         </ol>
       </div>
       <footer>
-        Published version: 5
+        Published version: 6
       </footer>
     </div>
   )

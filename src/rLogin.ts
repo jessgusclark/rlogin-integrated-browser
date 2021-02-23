@@ -4,7 +4,12 @@ import WalletConnectProvider from '@walletconnect/web3-provider'
 export const rLogin = new RLogin({
   cacheProvider: false,
   providerOptions: {
-    injected: {},
+    injected: {
+      id: 'injected',
+      name: 'Web3!!!!!!!!!!!!!',
+      type: 'injected',
+      check: 'isWeb3'
+    },
     walletconnect: {
       package: WalletConnectProvider,
       options: {
