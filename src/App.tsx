@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import './App.scss'
 import { rLogin } from './rLogin'
+import Eth from 'ethjs-query'
 
 function App () {
   const [response, setResponse] = useState<any>(null)
@@ -10,6 +11,8 @@ function App () {
   }
 
   const [log, setLog] = useState<logItem[]>([{ id: 0, text: 'Startup' }])
+  const [account, setAccount] = useState<string>('')
+  const [chainId, setChainId] = useState<number>(0)
 
   const logIt = (text: string) => setLog([...log, { text, id: log.length }])
 
@@ -18,6 +21,10 @@ function App () {
     rLogin.connect()
       .then((response: any) => {
         logIt('Connected!')
+        const ethQuery = new Eth(response.provider)
+        ethQuery.accounts().then((accounts: string[]) => setAccount(accounts[0]))
+        ethQuery.net_version().then((id: number) => setChainId(id))
+
         setResponse(response)
       })
       .catch((err: Error) => logIt(err.toString()))
@@ -43,8 +50,8 @@ function App () {
         {response && (
           <>
             <button onClick={handleDisconnect}>Disconnect</button>
-            <p>Address: </p>
-            <p>ChainId: </p>
+            <p>Address: {account}</p>
+            <p>ChainId: {chainId}</p>
           </>
         )}
       </div>
