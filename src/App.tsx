@@ -19,15 +19,30 @@ function App () {
   const handleConnect = () => {
     logIt('connecting...')
     rLogin.connect()
-      .then((response: any) => {
-        logIt('Connected!')
-        const ethQuery = new Eth(response.provider)
-        ethQuery.accounts().then((accounts: string[]) => setAccount(accounts[0]))
-        ethQuery.net_version().then((id: number) => setChainId(id))
-
-        setResponse(response)
-      })
+      .then((response: any) => afterConnect(response))
       .catch((err: Error) => logIt(err.toString()))
+  }
+
+  const handleInjectConnect = () => {
+    logIt('connecting Injected...')
+    rLogin.connectTo('injected')
+      .then((response: any) => afterConnect(response))
+      .catch((err: Error) => logIt(err.toString()))
+  }
+
+  const afterConnect = (response: any) => {
+    logIt('Connected!')
+
+    const ethQuery = new Eth(response.provider)
+    ethQuery.accounts()
+      .then((accounts: string[]) => setAccount(accounts[0]))
+      .catch((err: Error) => logIt(`Error Account: ${err.message}`))
+
+    ethQuery.net_version()
+      .then((id: number) => setChainId(id))
+      .catch((err: Error) => logIt(`Error ChainId: ${err.message}`))
+
+    setResponse(response)
   }
 
   const handleDisconnect = () => {
@@ -45,6 +60,7 @@ function App () {
       <div className="interaction">
         <h2>Start here!</h2>
         <button onClick={handleConnect}>Connect ;-)</button>
+        <button onClick={handleInjectConnect}>Injected!</button>
         <button onClick={() => localStorage.clear()}>Clear Local Storage</button>
 
         {response && (
@@ -63,7 +79,7 @@ function App () {
         </ol>
       </div>
       <footer>
-        Published version: 3
+        Published version: 4
       </footer>
     </div>
   )
