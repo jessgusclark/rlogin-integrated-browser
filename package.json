@@ -1,5 +1,6 @@
 {
   "name": "rif-id-manager",
+  "homepage": "https://jessgusclark.github.io/rlogin-integrated-browser/",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -13,10 +14,12 @@
     "lint:ci": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --format junit --output-file ./reports/eslint.xml"
   },
   "dependencies": {
+    "@rsksmart/rlogin": "^1.0.0-beta.1",
+    "@walletconnect/web3-provider": "^1.3.6",
+    "ethjs-query": "^0.3.8",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.0",
-    "rlogin": "^1.0.0",
     "typescript": "^4.0.3"
   },
   "devDependencies": {

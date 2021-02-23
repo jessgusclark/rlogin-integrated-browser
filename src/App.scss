@@ -3,7 +3,6 @@ $blue-color: #61dafb;
 $white-color: #ffffff;
 
 .App {
-  text-align: center;
 
   .App-logo {
     height: 40vmin;
@@ -25,6 +24,7 @@ $white-color: #ffffff;
     justify-content: center;
     font-size: calc(10px + 2vmin);
     color: $white-color;
+    text-align: center;
   }
   
   .App-link {
