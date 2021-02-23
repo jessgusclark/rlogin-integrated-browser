@@ -10215,6 +10215,11 @@ ripemd160@^2.0.0, ripemd160@^2.0.1:
     hash-base "^3.0.0"
     inherits "^2.0.1"
 
+rlogin@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/rlogin/-/rlogin-1.0.0.tgz#db07322b31219126625d9d0aa9872d7ebe8ac403"
+  integrity sha1-2wcyKzEhkSZiXZ0KqYctfr6KxAM=
+
 rollup-plugin-babel@^4.3.3:
   version "4.4.0"
   resolved "https://registry.yarnpkg.com/rollup-plugin-babel/-/rollup-plugin-babel-4.4.0.tgz#d15bd259466a9d1accbdb2fe2fff17c52d030acb"
