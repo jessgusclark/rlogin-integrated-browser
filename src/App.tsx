@@ -7,6 +7,10 @@ function App () {
       <header className="App-header">
         Testing rLogin Integrated!
       </header>
+
+      <footer>
+        Published version: 1
+      </footer>
     </div>
   )
 }

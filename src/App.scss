@@ -1,4 +1,4 @@
-$black-color: #282c34;
+$black-color: #062e70;
 $blue-color: #61dafb;
 $white-color: #ffffff;
 
@@ -18,7 +18,7 @@ $white-color: #ffffff;
   
   .App-header {
     background-color: $black-color;
-    min-height: 100vh;
+    padding: 25px 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -29,6 +29,15 @@ $white-color: #ffffff;
   
   .App-link {
     color: $blue-color;
+  }
+
+  footer {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+    border-top: 2px solid #ccc;
+    padding-top: 20px;
   }
   
   @keyframes App-logo-spin {
