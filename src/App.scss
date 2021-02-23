@@ -39,13 +39,9 @@ $white-color: #ffffff;
     border-top: 2px solid #ccc;
     padding-top: 20px;
   }
-  
-  @keyframes App-logo-spin {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }  
+}
+
+.rlogin-provider-container {
+  border: 5px solid red;
+  z-index: 100000;
 }
