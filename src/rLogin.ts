@@ -14,5 +14,5 @@ export const rLogin = new RLogin({
       }
     }
   },
-  supportedChains: [1, 3, 4, 5, 30, 31, 42, 5777]
+  supportedChains: [30, 31]
 })
