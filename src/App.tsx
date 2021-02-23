@@ -1,5 +1,6 @@
 import React from 'react'
 import './App.scss'
+import rLogin from '@rsksmart/rlogin';
 
 function App () {
   return (
