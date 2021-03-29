@@ -13,7 +13,7 @@ function App () {
   const [log, setLog] = useState<logItem[]>([{ id: 0, text: 'Startup' }])
   const [account, setAccount] = useState<string>('')
   const [chainId, setChainId] = useState<number>(0)
-
+  const [providerObject, setProviderObject] = useState<string>('')
   const logIt = (text: string) => setLog([...log, { text, id: log.length }])
 
   const handleConnect = () => {
@@ -24,7 +24,11 @@ function App () {
         const ethQuery = new Eth(response.provider)
         ethQuery.accounts().then((accounts: string[]) => setAccount(accounts[0]))
         ethQuery.net_version().then((id: number) => setChainId(id))
+        logIt(`Is MetaMask: ${response.provider.isMetaMask}`)
+        logIt(`Is rWallet: ${response.provider.isRWallet}`)
 
+        console.log(JSON.stringify(response.provider))
+        setProviderObject(JSON.stringify(response.provider))
         setResponse(response)
       })
       .catch((err: Error) => logIt(err.toString()))
@@ -62,8 +66,10 @@ function App () {
           {log.map((item: logItem) => <li key={item.id}>{item.text}</li>)}
         </ol>
       </div>
+
+      <textarea defaultValue={providerObject} style={{ width: '100%', height: '500px' }} />
       <footer>
-        Published version: 2
+        Published version: 3
       </footer>
     </div>
   )
